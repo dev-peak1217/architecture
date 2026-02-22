@@ -1,6 +1,9 @@
 package study.architecture.hexagonal.mvc.model;
 
 import java.time.LocalDateTime;
+import study.architecture.hexagonal.mvc.dto.BookRequest;
+import study.architecture.hexagonal.mvc.dto.BookResponse;
+import study.architecture.hexagonal.mvc.entity.Book;
 
 public class BookModel {
 
@@ -78,7 +81,7 @@ public class BookModel {
         this.publishedDate = publishedDate;
     }
 
-    public static BookModel fromEntity(study.architecture.hexagonal.mvc.entity.Book entity) {
+    public static BookModel fromEntity(Book entity) {
         return new BookModel(
             entity.getId(),
             entity.getTitle(),
@@ -90,8 +93,8 @@ public class BookModel {
         );
     }
 
-    public static study.architecture.hexagonal.mvc.entity.Book toEntity(BookModel model) {
-        study.architecture.hexagonal.mvc.entity.Book entity = new study.architecture.hexagonal.mvc.entity.Book();
+    public static Book toEntity(BookModel model) {
+        Book entity = new Book();
         entity.setId(model.getId());
         entity.setTitle(model.getTitle());
         entity.setContent(model.getContent());
@@ -102,7 +105,7 @@ public class BookModel {
         return entity;
     }
 
-    public static BookModel fromRequest(study.architecture.hexagonal.mvc.dto.BookRequest request) {
+    public static BookModel fromRequest(BookRequest request) {
         return new BookModel(
             null,
             request.getTitle(),
@@ -114,8 +117,8 @@ public class BookModel {
         );
     }
 
-    public static study.architecture.hexagonal.mvc.dto.BookResponse toResponse(BookModel model) {
-        return new study.architecture.hexagonal.mvc.dto.BookResponse(
+    public static BookResponse toResponse(BookModel model) {
+        return new BookResponse(
             model.getId(),
             model.getTitle(),
             model.getContent(),
