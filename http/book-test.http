@@ -1,0 +1,146 @@
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "오브젝트",
+  "content": "객체지향 설계와 책임 주도 설계를 다룬 책",
+  "author": "조영호",
+  "price": 38000,
+  "publisher": "위키북스",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "클린 코드",
+  "content": "가독성 높은 코드 작성 원칙과 실천 방법",
+  "author": "Robert C. Martin",
+  "price": 33000,
+  "publisher": "인사이트",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "클린 아키텍처",
+  "content": "소프트웨어 아키텍처 원칙과 계층 분리",
+  "author": "Robert C. Martin",
+  "price": 34000,
+  "publisher": "인사이트",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "도메인 주도 설계",
+  "content": "복잡한 도메인을 모델링하는 전략",
+  "author": "Eric Evans",
+  "price": 52000,
+  "publisher": "위키북스",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "리팩터링 2판",
+  "content": "코드 구조 개선과 안전한 변경 기법",
+  "author": "Martin Fowler",
+  "price": 45000,
+  "publisher": "한빛미디어",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "이펙티브 자바 3판",
+  "content": "자바 언어를 효과적으로 사용하는 방법",
+  "author": "Joshua Bloch",
+  "price": 36000,
+  "publisher": "인사이트",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "스프링 인 액션",
+  "content": "스프링 프레임워크 핵심 기능과 실전 예제",
+  "author": "Craig Walls",
+  "price": 42000,
+  "publisher": "에이콘",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "자바 퍼시스턴스 프로그래밍",
+  "content": "JPA와 Hibernate 기반 데이터 접근 설계",
+  "author": "Christian Bauer",
+  "price": 58000,
+  "publisher": "에이콘",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "토비의 스프링 3.1",
+  "content": "스프링의 원리와 DI, AOP를 깊게 설명",
+  "author": "이일민",
+  "price": 54000,
+  "publisher": "에이콘",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+POST http://localhost:8080/mvc/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "헤드 퍼스트 디자인 패턴",
+  "content": "디자인 패턴을 예제로 쉽게 익히는 입문서",
+  "author": "Eric Freeman",
+  "price": 40000,
+  "publisher": "한빛미디어",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+GET http://localhost:8080/mvc/book/all
+
+###
+GET http://localhost:8080/mvc/book/5

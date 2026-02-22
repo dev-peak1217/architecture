@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: hexagonal
+
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/bookstore
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:1234}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
