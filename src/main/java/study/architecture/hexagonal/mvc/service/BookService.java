@@ -1,14 +1,14 @@
 package study.architecture.hexagonal.mvc.service;
 
 import java.util.List;
-import study.architecture.hexagonal.mvc.entity.Book;
+import study.architecture.hexagonal.mvc.model.BookModel;
 
 public interface BookService {
 
-    Book save(Book book);
+    BookModel save(BookModel bookModel);
 
-    Book findById(Long id);
+    BookModel findById(Long id);
 
-    List<Book> findAll();
+    List<BookModel> findAll();
 
 }

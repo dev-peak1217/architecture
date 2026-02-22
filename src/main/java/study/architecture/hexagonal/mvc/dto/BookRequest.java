@@ -1,17 +1,9 @@
-package study.architecture.hexagonal.mvc.entity;
+package study.architecture.hexagonal.mvc.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity
-public class Book {
+public class BookRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String title;
     private String content;
     private String author;
@@ -19,12 +11,16 @@ public class Book {
     private String publisher;
     private LocalDateTime publishedDate;
 
-    public Long getId() {
-        return id;
+    public BookRequest() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public BookRequest(String title, String content, String author, Integer price, String publisher, LocalDateTime publishedDate) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+        this.price = price;
+        this.publisher = publisher;
+        this.publishedDate = publishedDate;
     }
 
     public String getTitle() {

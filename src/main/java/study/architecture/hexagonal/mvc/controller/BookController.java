@@ -7,14 +7,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import study.architecture.hexagonal.mvc.entity.Book;
+import study.architecture.hexagonal.mvc.dto.BookRequest;
+import study.architecture.hexagonal.mvc.dto.BookResponse;
+import study.architecture.hexagonal.mvc.model.BookModel;
 import study.architecture.hexagonal.mvc.service.BookService;
 
 @RestController
 @RequestMapping("/mvc/book")
 public class BookController {
 
-    BookService bookService;
+    private final BookService bookService;
 
     public BookController(BookService bookService) {
         this.bookService = bookService;
@@ -26,18 +28,61 @@ public class BookController {
     }
 
     @PostMapping("/save")
-    public Book save(@RequestBody Book book) {
-        return bookService.save(book);
+    public BookResponse save(@RequestBody BookRequest request) {
+        BookModel model = new BookModel(
+            null,
+            request.getTitle(),
+            request.getContent(),
+            request.getAuthor(),
+            request.getPrice(),
+            request.getPublisher(),
+            request.getPublishedDate()
+        );
+        
+        BookModel savedModel = bookService.save(model);
+        
+        return new BookResponse(
+            savedModel.getId(),
+            savedModel.getTitle(),
+            savedModel.getContent(),
+            savedModel.getAuthor(),
+            savedModel.getPrice(),
+            savedModel.getPublisher(),
+            savedModel.getPublishedDate()
+        );
     }
 
     @GetMapping("/{id}")
-    public Book findById(@PathVariable("id") Long id) {
-        return bookService.findById(id);
+    public BookResponse findById(@PathVariable("id") Long id) {
+        BookModel model = bookService.findById(id);
+        if (model == null) {
+            return null;
+        }
+        
+        return new BookResponse(
+            model.getId(),
+            model.getTitle(),
+            model.getContent(),
+            model.getAuthor(),
+            model.getPrice(),
+            model.getPublisher(),
+            model.getPublishedDate()
+        );
     }
 
     @GetMapping("/all")
-    public List<Book> findAll() {
-        return bookService.findAll();
+    public List<BookResponse> findAll() {
+        return bookService.findAll().stream()
+            .map(model -> new BookResponse(
+                model.getId(),
+                model.getTitle(),
+                model.getContent(),
+                model.getAuthor(),
+                model.getPrice(),
+                model.getPublisher(),
+                model.getPublishedDate()
+            ))
+            .toList();
     }
 
 }
