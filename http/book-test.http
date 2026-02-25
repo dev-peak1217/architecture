@@ -144,3 +144,26 @@ GET http://localhost:8080/mvc/book/all
 
 ###
 GET http://localhost:8080/mvc/book/5
+
+
+
+
+###
+POST http://localhost:8080/hex/book/save
+Content-Type: application/json
+
+{
+  "id": null,
+  "title": "개미",
+  "content": "개미개미",
+  "author": "베르나르베르베르",
+  "price": 15000,
+  "publisher": "열린책들",
+  "publishedDate": "{{ $isoTimestamp }}"
+}
+
+###
+GET http://localhost:8080/hex/book/all
+
+###
+GET http://localhost:8080/hex/book/5

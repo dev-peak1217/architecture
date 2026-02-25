@@ -4,34 +4,34 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import study.architecture.hexagonal.mvc.entity.Book;
 import study.architecture.hexagonal.mvc.model.BookModel;
-import study.architecture.hexagonal.mvc.repository.BookJpaRepository;
+import study.architecture.hexagonal.mvc.repository.MvcBookJpaRepository;
 
 @Service
 public class BookServiceImpl implements BookService {
 
-    private final BookJpaRepository bookJpaRepository;
+    private final MvcBookJpaRepository mvcBookJpaRepository;
 
-    public BookServiceImpl(BookJpaRepository bookJpaRepository) {
-        this.bookJpaRepository = bookJpaRepository;
+    public BookServiceImpl(MvcBookJpaRepository mvcBookJpaRepository) {
+        this.mvcBookJpaRepository = mvcBookJpaRepository;
     }
 
     @Override
     public BookModel save(BookModel bookModel) {
         Book entity = toEntity(bookModel);
-        Book savedEntity = bookJpaRepository.save(entity);
+        Book savedEntity = mvcBookJpaRepository.save(entity);
         return toModel(savedEntity);
     }
 
     @Override
     public BookModel findById(Long id) {
-        return bookJpaRepository.findById(id)
+        return mvcBookJpaRepository.findById(id)
             .map(this::toModel)
             .orElse(null);
     }
 
     @Override
     public List<BookModel> findAll() {
-        return bookJpaRepository.findAll().stream()
+        return mvcBookJpaRepository.findAll().stream()
             .map(this::toModel)
             .toList();
     }

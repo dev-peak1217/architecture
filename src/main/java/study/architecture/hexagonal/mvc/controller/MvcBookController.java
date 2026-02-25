@@ -14,11 +14,11 @@ import study.architecture.hexagonal.mvc.service.BookService;
 
 @RestController
 @RequestMapping("/mvc/book")
-public class BookController {
+public class MvcBookController {
 
     private final BookService bookService;
 
-    public BookController(BookService bookService) {
+    public MvcBookController(BookService bookService) {
         this.bookService = bookService;
     }
 
