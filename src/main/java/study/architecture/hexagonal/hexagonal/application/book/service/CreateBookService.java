@@ -7,6 +7,9 @@ import study.architecture.hexagonal.hexagonal.adapter.in.web.dto.BookRecord;
 import study.architecture.hexagonal.hexagonal.application.book.port.in.CreateBookUseCase;
 import study.architecture.hexagonal.hexagonal.application.book.port.out.SaveBookPort;
 
+/*
+* 책을 생성하는 역할을 담당
+* */
 @Service
 public class CreateBookService implements CreateBookUseCase {
 

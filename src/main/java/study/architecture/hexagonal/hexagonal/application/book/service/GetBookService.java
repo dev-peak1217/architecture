@@ -8,6 +8,9 @@ import study.architecture.hexagonal.hexagonal.adapter.in.web.dto.BookRecord;
 import study.architecture.hexagonal.hexagonal.application.book.port.in.GetBookUseCase;
 import study.architecture.hexagonal.hexagonal.application.book.port.out.LoadBookPort;
 
+/*
+* 책을 조회하는 역할을 담당
+* */
 @Service
 public class GetBookService implements GetBookUseCase {
 

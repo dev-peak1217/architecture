@@ -8,6 +8,9 @@ import study.architecture.hexagonal.hexagonal.application.book.port.out.LoadBook
 import study.architecture.hexagonal.hexagonal.application.book.port.out.SaveBookPort;
 import study.architecture.hexagonal.hexagonal.domain.model.Book;
 
+/*
+* 하나의 DBMS를 사용하는 것으로 인해 하나의 통합 Adaptor로 구성
+* */
 @Repository
 public class BookPersistenceAdapter implements LoadBookPort, SaveBookPort {
 
