@@ -1,6 +1,6 @@
 package study.architecture.hexagonal.mvc.model;
 
-public class ExternalBookModel {
+public class MvcExternalBookModel {
 
     private String bookTitle;
     private String authorName;
@@ -10,10 +10,10 @@ public class ExternalBookModel {
     private String category;
     private Integer publishYear;
 
-    public ExternalBookModel() {
+    public MvcExternalBookModel() {
     }
 
-    public ExternalBookModel(String bookTitle, String authorName, String isbn, Double rating, Integer reviewCount, String category, Integer publishYear) {
+    public MvcExternalBookModel(String bookTitle, String authorName, String isbn, Double rating, Integer reviewCount, String category, Integer publishYear) {
         this.bookTitle = bookTitle;
         this.authorName = authorName;
         this.isbn = isbn;

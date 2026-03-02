@@ -1,12 +1,12 @@
 package study.architecture.hexagonal.mvc.service;
 
 import java.util.List;
-import study.architecture.hexagonal.mvc.dto.ExternalBookResponse;
+import study.architecture.hexagonal.mvc.dto.MvcExternalBookResponse;
 
-public interface ExternalBookService {
+public interface MvcExternalBookService {
 
-    List<ExternalBookResponse> fetchBooksFromExternalApi();
+    List<MvcExternalBookResponse> fetchBooksFromExternalApi();
 
-    ExternalBookResponse fetchBookByIsbn(String isbn);
+    MvcExternalBookResponse fetchBookByIsbn(String isbn);
 
 }

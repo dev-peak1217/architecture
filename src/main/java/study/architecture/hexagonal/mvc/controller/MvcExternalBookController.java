@@ -5,26 +5,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import study.architecture.hexagonal.mvc.dto.ExternalBookResponse;
-import study.architecture.hexagonal.mvc.service.ExternalBookService;
+import study.architecture.hexagonal.mvc.dto.MvcExternalBookResponse;
+import study.architecture.hexagonal.mvc.service.MvcExternalBookService;
 
 @RestController
 @RequestMapping("/mvc/external/book")
-public class ExternalBookController {
+public class MvcExternalBookController {
 
-    private final ExternalBookService externalBookService;
+    private final MvcExternalBookService mvcExternalBookService;
 
-    public ExternalBookController(ExternalBookService externalBookService) {
-        this.externalBookService = externalBookService;
+    public MvcExternalBookController(MvcExternalBookService mvcExternalBookService) {
+        this.mvcExternalBookService = mvcExternalBookService;
     }
 
     @GetMapping("/all")
-    public List<ExternalBookResponse> fetchAllBooks() {
-        return externalBookService.fetchBooksFromExternalApi();
+    public List<MvcExternalBookResponse> fetchAllBooks() {
+        return mvcExternalBookService.fetchBooksFromExternalApi();
     }
 
     @GetMapping("/isbn/{isbn}")
-    public ExternalBookResponse fetchBookByIsbn(@PathVariable String isbn) {
-        return externalBookService.fetchBookByIsbn(isbn);
+    public MvcExternalBookResponse fetchBookByIsbn(@PathVariable String isbn) {
+        return mvcExternalBookService.fetchBookByIsbn(isbn);
     }
 }

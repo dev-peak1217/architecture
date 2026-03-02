@@ -3,15 +3,15 @@ package study.architecture.hexagonal.mvc.service;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
-import study.architecture.hexagonal.mvc.dto.ExternalBookResponse;
-import study.architecture.hexagonal.mvc.model.ExternalBookModel;
+import study.architecture.hexagonal.mvc.dto.MvcExternalBookResponse;
+import study.architecture.hexagonal.mvc.model.MvcExternalBookModel;
 
 @Service
-public class ExternalBookServiceImpl implements ExternalBookService {
+public class MvcExternalBookServiceImpl implements MvcExternalBookService {
 
     @Override
-    public List<ExternalBookResponse> fetchBooksFromExternalApi() {
-        List<ExternalBookModel> models = fetchDummyExternalBooks();
+    public List<MvcExternalBookResponse> fetchBooksFromExternalApi() {
+        List<MvcExternalBookModel> models = fetchDummyExternalBooks();
         
         return models.stream()
             .map(this::toResponse)
@@ -19,8 +19,8 @@ public class ExternalBookServiceImpl implements ExternalBookService {
     }
 
     @Override
-    public ExternalBookResponse fetchBookByIsbn(String isbn) {
-        ExternalBookModel model = new ExternalBookModel(
+    public MvcExternalBookResponse fetchBookByIsbn(String isbn) {
+        MvcExternalBookModel model = new MvcExternalBookModel(
             "Sample Book for ISBN: " + isbn,
             "Unknown Author",
             isbn,
@@ -33,10 +33,10 @@ public class ExternalBookServiceImpl implements ExternalBookService {
         return toResponse(model);
     }
 
-    private List<ExternalBookModel> fetchDummyExternalBooks() {
-        List<ExternalBookModel> books = new ArrayList<>();
+    private List<MvcExternalBookModel> fetchDummyExternalBooks() {
+        List<MvcExternalBookModel> books = new ArrayList<>();
         
-        books.add(new ExternalBookModel(
+        books.add(new MvcExternalBookModel(
             "Effective Java",
             "Joshua Bloch",
             "978-0134685991",
@@ -46,7 +46,7 @@ public class ExternalBookServiceImpl implements ExternalBookService {
             2018
         ));
         
-        books.add(new ExternalBookModel(
+        books.add(new MvcExternalBookModel(
             "Clean Code",
             "Robert C. Martin",
             "978-0132350884",
@@ -56,7 +56,7 @@ public class ExternalBookServiceImpl implements ExternalBookService {
             2008
         ));
         
-        books.add(new ExternalBookModel(
+        books.add(new MvcExternalBookModel(
             "Domain-Driven Design",
             "Eric Evans",
             "978-0321125217",
@@ -69,8 +69,8 @@ public class ExternalBookServiceImpl implements ExternalBookService {
         return books;
     }
 
-    private ExternalBookResponse toResponse(ExternalBookModel model) {
-        return new ExternalBookResponse(
+    private MvcExternalBookResponse toResponse(MvcExternalBookModel model) {
+        return new MvcExternalBookResponse(
             model.getBookTitle(),
             model.getAuthorName(),
             model.getIsbn(),

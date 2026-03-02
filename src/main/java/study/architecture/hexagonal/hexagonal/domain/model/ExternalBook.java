@@ -1,6 +1,6 @@
-package study.architecture.hexagonal.mvc.dto;
+package study.architecture.hexagonal.hexagonal.domain.model;
 
-public class MvcExternalBookResponse {
+public class ExternalBook {
 
     private String bookTitle;
     private String authorName;
@@ -10,10 +10,10 @@ public class MvcExternalBookResponse {
     private String category;
     private Integer publishYear;
 
-    public MvcExternalBookResponse() {
+    public ExternalBook() {
     }
 
-    public MvcExternalBookResponse(String bookTitle, String authorName, String isbn, Double rating, Integer reviewCount, String category, Integer publishYear) {
+    public ExternalBook(String bookTitle, String authorName, String isbn, Double rating, Integer reviewCount, String category, Integer publishYear) {
         this.bookTitle = bookTitle;
         this.authorName = authorName;
         this.isbn = isbn;

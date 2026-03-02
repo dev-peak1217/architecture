@@ -1,6 +1,8 @@
-package study.architecture.hexagonal.mvc.dto;
+package study.architecture.hexagonal.hexagonal.adapter.out.externalapi;
 
-public class MvcExternalBookResponse {
+import study.architecture.hexagonal.hexagonal.domain.model.ExternalBook;
+
+public class ExternalBookApiDto {
 
     private String bookTitle;
     private String authorName;
@@ -10,10 +12,10 @@ public class MvcExternalBookResponse {
     private String category;
     private Integer publishYear;
 
-    public MvcExternalBookResponse() {
+    public ExternalBookApiDto() {
     }
 
-    public MvcExternalBookResponse(String bookTitle, String authorName, String isbn, Double rating, Integer reviewCount, String category, Integer publishYear) {
+    public ExternalBookApiDto(String bookTitle, String authorName, String isbn, Double rating, Integer reviewCount, String category, Integer publishYear) {
         this.bookTitle = bookTitle;
         this.authorName = authorName;
         this.isbn = isbn;
@@ -77,5 +79,29 @@ public class MvcExternalBookResponse {
 
     public void setPublishYear(Integer publishYear) {
         this.publishYear = publishYear;
+    }
+
+    public ExternalBook toDomain() {
+        return new ExternalBook(
+            this.bookTitle,
+            this.authorName,
+            this.isbn,
+            this.rating,
+            this.reviewCount,
+            this.category,
+            this.publishYear
+        );
+    }
+
+    public static ExternalBookApiDto fromDomain(ExternalBook book) {
+        return new ExternalBookApiDto(
+            book.getBookTitle(),
+            book.getAuthorName(),
+            book.getIsbn(),
+            book.getRating(),
+            book.getReviewCount(),
+            book.getCategory(),
+            book.getPublishYear()
+        );
     }
 }
